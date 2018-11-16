@@ -63,12 +63,10 @@ class WebSheetComponent extends React.Component {
         }
       };
       return (
-        <HotTable
-          className="websheet-content"
-          settings = {
-            this.hotSettings
-          }
-        />
+        <section className="websheet-content-container">
+          <h1>Loaded :)</h1>
+          <HotTable className="websheet-content" settings = { this.hotSettings } />
+        </section>
       );
     }
   }
