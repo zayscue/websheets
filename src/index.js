@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { HotTable } from "@handsontable/react";
-import Handsontable from 'handsontable';
 import ReactDropzone from "react-dropzone";
 import WebSheetLoader from "./websheetLoader";
 import "./index.css";
@@ -25,7 +24,6 @@ class WebSheetComponent extends React.Component {
         selectedFile: file,
         websheet: websheet
       });
-      console.table(websheet.to2DArray());
     });
   }
 
@@ -44,28 +42,18 @@ class WebSheetComponent extends React.Component {
       this.hotSettings = {
         data: this.state.websheet.to2DArray(),
         colHeaders: true,
-        rowHeaders:true,
+        rowHeaders: true,
         stretchH: "all",
-        contextMenu: {
-          items: {
-            'row_above': {},
-            'row_below': {},
-            'undo': {}, 
-            'redo': {},
-            'separator': Handsontable.plugins.ContextMenu.SEPARATOR,
-            'clear_custom': {
-              name: 'Clear all cells',
-              callback: function () {
-                this.clear();
-              }
-            }
+        contextMenu: true,
+        modifyColWidth: function(width, col) {
+          if (width > 350) {
+            return 350;
           }
         }
       };
       return (
         <section className="websheet-content-container">
-          <h1>Loaded :)</h1>
-          <HotTable className="websheet-content" settings = { this.hotSettings } />
+          <HotTable className="websheet-content" settings={this.hotSettings} />
         </section>
       );
     }
