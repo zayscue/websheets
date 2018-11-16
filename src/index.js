@@ -48,13 +48,13 @@ class WebSheetComponent extends React.Component {
         stretchH: "all",
         contextMenu: {
           items: {
-            'row_above': {
-              name: 'Insert row above this one (custom name)'
-            },
+            'row_above': {},
             'row_below': {},
+            'undo': {}, 
+            'redo': {},
             'separator': Handsontable.plugins.ContextMenu.SEPARATOR,
             'clear_custom': {
-              name: 'Clear all cells (custom)',
+              name: 'Clear all cells',
               callback: function () {
                 this.clear();
               }
