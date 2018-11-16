@@ -24,7 +24,8 @@ h1 {
 
 #root {
   height: 90%;
-  width: 90%
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .websheet-app {
