@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { HotTable } from "@handsontable/react";
+import Handsontable from 'handsontable';
 import ReactDropzone from "react-dropzone";
 import WebSheetLoader from "./websheetLoader";
 import "./index.css";
@@ -40,13 +41,33 @@ class WebSheetComponent extends React.Component {
         </section>
       );
     } else {
+      this.hotSettings = {
+        data: this.state.websheet.to2DArray(),
+        colHeaders: true,
+        rowHeaders:true,
+        stretchH: "all",
+        contextMenu: {
+          items: {
+            'row_above': {
+              name: 'Insert row above this one (custom name)'
+            },
+            'row_below': {},
+            'separator': Handsontable.plugins.ContextMenu.SEPARATOR,
+            'clear_custom': {
+              name: 'Clear all cells (custom)',
+              callback: function () {
+                this.clear();
+              }
+            }
+          }
+        }
+      };
       return (
         <HotTable
           className="websheet-content"
-          data={this.state.websheet.to2DArray()}
-          colHeaders={true}
-          rowHeaders={true}
-          stretchH="all"
+          settings = {
+            this.hotSettings
+          }
         />
       );
     }
