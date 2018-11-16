@@ -1,0 +1,33 @@
+@import "../node_modules/handsontable/dist/handsontable.full.css";
+
+.websheet-dropzone {
+  background: white;
+  border: 2px dashed green;
+  border-radius: 5px;
+  background-color: lightgreen;
+  min-height: 150px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  padding: 54px 54px;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: Roboto, "Open Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.4rem;
+  background: #f3f4f5;
+  color: #646c7f;
+  text-rendering: optimizeLegibility;
+}
+
+h1 {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
